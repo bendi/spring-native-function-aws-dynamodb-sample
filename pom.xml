@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>pl.bedkowski</groupId>
-	<artifactId>spring-native-function-aws-sample</artifactId>
+	<artifactId>spring-native-function-aws-dynamodb</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
@@ -30,7 +30,7 @@
 
 		<!-- Customize native-image arguments with this property -->
 		<native.build.args>--enable-url-protocols=http</native.build.args>
-		<native.image-name>spring-native-function-aws</native.image-name>
+		<native.image-name>spring-native-function-aws-dynamodb</native.image-name>
 
 		<!-- `tiny` builder allows small footprint and reduced surface attack, you can also use `base` (the default) or `full` builders to have more tooling available in the image for an improved developer experience -->
 		<builder>paketobuildpacks/builder:tiny</builder>
@@ -51,6 +51,21 @@
  			<artifactId>spring-cloud-starter-function-webflux</artifactId>
  		</dependency>
 
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-dynamodb</artifactId>
+			<version>1.11.1009</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.derjust</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.12.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -76,6 +91,13 @@
 				<groupId>org.springframework.experimental</groupId>
 				<artifactId>spring-native</artifactId>
 				<version>0.10.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-releasetrain</artifactId>
+				<version>Neumann-SR9</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
