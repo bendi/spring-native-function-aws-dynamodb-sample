@@ -8,6 +8,8 @@
     - using graalvm: 
       `docker-compose --profile "native-image" up` (takes ~15mins on my Macbook Air)
 
+## local env
+`docker-compose --profile "local-env" up`
 
 ## Troubleshooting
 1. `failed to solve with frontend dockerfile.v0: failed to build LLB: executor failed running - runc did not terminate sucessfully` go to [this](https://github.com/docker/buildx/issues/426) stackoverflow thread

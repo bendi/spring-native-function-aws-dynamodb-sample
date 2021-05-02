@@ -31,4 +31,12 @@ services:
       dockerfile: docker/java/Dockerfile
     ports:
       - "9000:8080"
+    profiles:
+      - "java-runner"
+  dynamo:
+    image: amazon/dynamodb-local
+    ports:
+      - "8000:8000"
+    profiles:
+      - "local-env"
 
