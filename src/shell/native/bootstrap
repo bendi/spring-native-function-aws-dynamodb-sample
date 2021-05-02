@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd ${LAMBDA_TASK_ROOT:-.}
+
+./spring-native-function-aws -Dlogging.level.org.springframework=INFO -Dspring.main.web-application-type=none
