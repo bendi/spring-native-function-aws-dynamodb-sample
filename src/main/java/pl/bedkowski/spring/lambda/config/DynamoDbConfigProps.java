@@ -2,24 +2,30 @@ package pl.bedkowski.spring.lambda.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.ConstructorBinding;
+import software.amazon.awssdk.regions.Region;
+
+import java.net.URI;
 
 @ConfigurationProperties(prefix = "amazon.dynamodb")
 @ConstructorBinding
 public class DynamoDbConfigProps {
 
-    private final String endpoint;
+    private final URI endpoint;
 
     private final String accesskey;
 
     private final String secretkey;
 
-    public DynamoDbConfigProps(String endpoint, String accesskey, String secretkey) {
+    private final Region region;
+
+    public DynamoDbConfigProps(URI endpoint, String accesskey, String secretkey, Region region) {
         this.endpoint = endpoint;
         this.accesskey = accesskey;
         this.secretkey = secretkey;
+        this.region = region;
     }
 
-    public String getEndpoint() {
+    public URI getEndpoint() {
         return endpoint;
     }
 
@@ -29,5 +35,9 @@ public class DynamoDbConfigProps {
 
     public String getSecretkey() {
         return secretkey;
+    }
+
+    public Region getRegion() {
+        return region;
     }
 }

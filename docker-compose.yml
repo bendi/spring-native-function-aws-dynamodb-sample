@@ -34,9 +34,12 @@ services:
     profiles:
       - "java-runner"
   dynamo:
-    image: amazon/dynamodb-local
+    command: "-jar DynamoDBLocal.jar -sharedDb -optimizeDbBeforeStartup -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
     ports:
       - "8000:8000"
-    profiles:
-      - "local-env"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
 

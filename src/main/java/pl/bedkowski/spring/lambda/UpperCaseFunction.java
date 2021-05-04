@@ -21,7 +21,7 @@ public class UpperCaseFunction implements Function<String, String> {
     @Override
     public String apply(String s) {
         var product = productInfoRepository.findById("1");
-        log.info("Fetched product: {}", product);
+        log.info("Fetched product: {}", product.getMsrp());
         return s.toUpperCase();
     }
 }
