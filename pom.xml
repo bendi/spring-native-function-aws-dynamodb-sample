@@ -31,7 +31,8 @@
 
 		<!-- Customize native-image arguments with this property -->
 		<native.build.args>
-			--enable-url-protocols=http
+			--enable-http
+			--enable-https
 		</native.build.args>
 		<native.image-name>spring-native-function-aws-dynamodb</native.image-name>
 

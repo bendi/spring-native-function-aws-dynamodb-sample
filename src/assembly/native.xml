@@ -18,6 +18,24 @@
 			</includes>
 		</fileSet>
 		<fileSet>
+			<directory>src/shell/native</directory>
+			<outputDirectory>/ssl</outputDirectory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0664</fileMode>
+			<includes>
+				<include>cacerts</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>src/shell/native</directory>
+			<outputDirectory>/ssl</outputDirectory>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0775</fileMode>
+			<includes>
+				<include>libsunec.so</include>
+			</includes>
+		</fileSet>
+		<fileSet>
 			<directory>target</directory>
 			<outputDirectory>/</outputDirectory>
 			<useDefaultExcludes>true</useDefaultExcludes>
